@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   private data = new UserLoginInfo();
   res: any;
+  error=""
 
   constructor(public logService: LoginService, private router: Router) {}
   
@@ -38,9 +39,16 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/company']);
           console.log(this.response);
         }
-      }
+      }, error => this.handleError(error) //Si el servidor no responde, entra por aqui.
+    
+
     );
+
   }
+
+  handleError(error){
+    alert("Error en el servidor, compruebe que este encendido por favor.");
+    }
 
 
   ngOnInit() {}
