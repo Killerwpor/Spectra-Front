@@ -134,6 +134,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.userData = JSON.parse(sessionStorage.getItem("sessionData"));
+    console.log("DATOOOOS: "+JSON.stringify(this.userData))
     if (this.userData == undefined || this.userData == null) {
       this.router.navigate(["/login"]);
     }
@@ -211,6 +212,20 @@ export class DashboardComponent implements OnInit {
     if (this.toggle == "dash" || this.toggle == "notSelected") {
       this.toggle = "add";
     } else if (this.toggle == "add") {
+      if (this.selectedContact) {
+        this.toggle = "dash";
+      } else {
+        this.toggle = "notSelected"
+      }
+    }
+    this.closeUserSidebar();
+  }
+
+  addCompany() {
+    this.updateData();
+    if (this.toggle == "dash" || this.toggle == "notSelected") {
+      this.toggle = "addCompany";
+    } else if (this.toggle == "addCompany") {
       if (this.selectedContact) {
         this.toggle = "dash";
       } else {

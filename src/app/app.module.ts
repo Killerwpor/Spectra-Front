@@ -41,6 +41,7 @@ import { SummaryChartComponent } from './summary-chart/summary-chart.component';
 import { GlobalContactSearchComponent } from './global-contact-search/global-contact-search.component';
 import { GlobalListContactsComponent } from './global-list-contacts/global-list-contacts.component';
 import { DatePipe } from '@angular/common';
+import { CompanyFormComponent } from './company-form/company-form.component';
 
 
 
@@ -72,7 +73,8 @@ import { DatePipe } from '@angular/common';
     MenuUserComponent,
     GlobalContactSearchComponent,
     GlobalListContactsComponent,
-    PageCompanyListComponent
+    PageCompanyListComponent,
+    CompanyFormComponent
   ],
   imports: [
     MainPipe,

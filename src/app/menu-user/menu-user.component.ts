@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { faFilePdf, faSignOutAlt, faCog, faBuilding } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -8,6 +8,8 @@ import { faFilePdf, faSignOutAlt, faCog, faBuilding } from '@fortawesome/free-so
 })
 export class MenuUserComponent implements OnInit {
 
+  @Output() addCompany = new EventEmitter<any>();
+
   faFilePdf = faFilePdf;
   faSignOutAlt = faSignOutAlt;
   faCog = faCog;
@@ -16,6 +18,10 @@ export class MenuUserComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  openCompanyForm(){
+    this.addCompany.emit(null);
   }
 
 }
