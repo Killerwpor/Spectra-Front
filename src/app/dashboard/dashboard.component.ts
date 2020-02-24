@@ -209,7 +209,7 @@ export class DashboardComponent implements OnInit {
   // Funcion para abrir la forma de agregar usuario y cerrar el dash o vice-versa
   addUser() {
     this.updateData();
-    if (this.toggle == "dash" || this.toggle == "notSelected") {
+    if (this.toggle == "dash" || this.toggle == "notSelected" || this.toggle == "addCompany") {
       this.toggle = "add";
     } else if (this.toggle == "add") {
       if (this.selectedContact) {
@@ -223,7 +223,7 @@ export class DashboardComponent implements OnInit {
 
   addCompany() {
     this.updateData();
-    if (this.toggle == "dash" || this.toggle == "notSelected") {
+    if (this.toggle == "dash" || this.toggle == "notSelected" || this.toggle == "add") {
       this.toggle = "addCompany";
     } else if (this.toggle == "addCompany") {
       if (this.selectedContact) {

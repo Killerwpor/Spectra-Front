@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { SimulatorFormComponent } from "./../simulator-form/simulator-form.component";
 import { FormAddService } from "./company-form.service";
 
@@ -9,6 +9,7 @@ import { FormAddService } from "./company-form.service";
 })
 export class CompanyFormComponent implements OnInit {
 
+  display='none';
 
 @ViewChild(SimulatorFormComponent, { static: false })
 simForm: SimulatorFormComponent;
@@ -16,6 +17,7 @@ simForm: SimulatorFormComponent;
 response: any;
   
   @Input() simulatorList: string;
+  @Output() close: EventEmitter<any> = new EventEmitter();
 
 
   constructor(public formAddService: FormAddService) {}
@@ -27,6 +29,7 @@ response: any;
 
   save(){
     var inputCompany= (<HTMLInputElement>document.getElementById("inputCompany")).value; 
+    var modal=(<HTMLInputElement>document.getElementById("modal"));
     var userData = JSON.parse(sessionStorage.getItem("sessionData"));
     var userCompany = userData[userData.length - 1].adminCompany;
     var newCompanyData={
@@ -38,8 +41,18 @@ clientName: userCompany
     this.formAddService
     .postAddForm(newCompanyData)
     .subscribe(result => {
-      console.log("RESULTADO: "+result);
+     this.display="block";
     });   
 
+}
+
+closeModal(){
+  this.display="none";
+
+}
+
+returnToDash() {
+  this.close.emit(null);
+  
 }
 }

@@ -121,7 +121,7 @@
         <ng-container *ngIf="toggle =='addCompany'">
           <div class="row w-100 m-3">
             <div class="col-lg-12 mx-auto p-0">
-              <app-company-form [simulatorList]="simulatorList"></app-company-form>
+              <app-company-form (close)="addCompany()" [simulatorList]="simulatorList"></app-company-form>
             </div>
           </div>
         </ng-container>
