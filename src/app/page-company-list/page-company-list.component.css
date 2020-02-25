@@ -10,3 +10,10 @@
   max-height: 100%;
   max-width: 100%;
 }
+
+h6{
+  width: 40%;
+}
+h6:hover {
+  background-color: white;
+}
