@@ -2,7 +2,7 @@ import { LoginService } from './login.service';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { UserLoginInfo } from "../userLoginInfo";
 import { Component, OnInit, Input, Injectable } from "@angular/core";
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 
 @Component({
@@ -24,6 +24,8 @@ export class LoginComponent implements OnInit {
   response: any;
 
   TryLogin() {
+ 
+    
     this.data.email = this.inputUsername;
     this.data.password = this.inputPass;
 

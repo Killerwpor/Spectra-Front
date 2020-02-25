@@ -134,7 +134,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.userData = JSON.parse(sessionStorage.getItem("sessionData"));
-    console.log("DATOOOOS: "+JSON.stringify(this.userData))
     if (this.userData == undefined || this.userData == null) {
       this.router.navigate(["/login"]);
     }
@@ -369,7 +368,7 @@ export class DashboardComponent implements OnInit {
     //Tipo de usuario.
     this.typeUser = data[data.length - 2].typeOfUser;
     //Nombre de la compania
-    this.userCompany = data[data.length - 1].adminCompany;
+    this.userCompany = data[data.length - 1].adminCompany; //Aqui se debe recibir la compañia que seleccione el usuario
   }
 
   simulatorList: simulator[] = [];

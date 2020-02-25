@@ -30,7 +30,8 @@ export class MenuUserComponent implements OnInit {
   }
 
   logout(){
-    this.router.navigate(['/']);
+    sessionStorage.clear(); 
+    this.router.navigate(['/login']);
   }
 
 }
