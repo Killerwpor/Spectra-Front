@@ -71,7 +71,6 @@ export class PageCompanyListComponent implements OnInit {
     this.logService.postLogin2(dataAux).subscribe(
       result =>{
        // alert(result);
-       console.log("DATOS: "+JSON.stringify(result))
       sessionStorage.clear();
       sessionStorage.setItem('sessionData',JSON.stringify(result));
       this.router.navigate(['/dash']);

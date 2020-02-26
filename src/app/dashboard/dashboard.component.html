@@ -43,7 +43,7 @@
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item" style="background-color: var(--spectra-green);">
       <a class="nav-link collapsed" (click)="collapseNavLink('menu')">
-        <span class="tex">Empresas</span>
+        <span class="tex">Administrar</span>
       </a>
       <div id="collapseMenu" #collapseMenu class="collapse" aria-labelledby="headingTwo"
         data-parent="#accordionSidebar">
@@ -121,7 +121,7 @@
         <ng-container *ngIf="toggle =='addCompany'">
           <div class="row w-100 m-3">
             <div class="col-lg-12 mx-auto p-0">
-              <app-company-form (close)="addCompany()" [simulatorList]="simulatorList"></app-company-form>
+              <app-company-form (close)="addCompany()" [simulatorList]="simulatorListTotal"></app-company-form>
             </div>
           </div>
         </ng-container>
@@ -146,7 +146,7 @@
             <div class="row">
               <div class="col-lg-12 text-center">
                 <h1 class="noUserText">
-                  Seleccione uno de los usuarios para visualizar metricas
+                  Seleccione uno de los usuarios para visualizar métricas
                 </h1>
               </div>
             </div>

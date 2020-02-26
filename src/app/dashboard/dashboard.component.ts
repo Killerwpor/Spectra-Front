@@ -41,6 +41,7 @@ import {
   faBuilding,
   faStarOfLife
 } from "@fortawesome/free-solid-svg-icons";
+import { SimulatorInfo } from '../simulatorInfo';
 declare var $ : any;
 
 //declare const beginBoot : any;
@@ -222,6 +223,24 @@ export class DashboardComponent implements OnInit {
   }
 
   addCompany() {
+    //aqui actualizar la lista de simuladores
+    var company = this.userData[this.userData.length - 1].adminCompany;
+
+
+    var simulatorInfo: SimulatorInfo = {
+    name: company
+    };
+
+    var simulatorListAux=[{
+      name: "RCP"
+    }]
+
+
+    this.logService.postLogin3(simulatorInfo).subscribe(result => {
+      this.simulatorListTotal=result;
+    });
+
+    
     this.updateData();
     if (this.toggle == "dash" || this.toggle == "notSelected" || this.toggle == "add") {
       this.toggle = "addCompany";
@@ -374,4 +393,5 @@ export class DashboardComponent implements OnInit {
   }
 
   simulatorList: simulator[] = [];
+ simulatorListTotal: Object[];
 }

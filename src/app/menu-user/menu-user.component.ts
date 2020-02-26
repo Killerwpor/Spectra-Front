@@ -26,6 +26,14 @@ export class MenuUserComponent implements OnInit {
   }
 
   changeCompany(){
+    
+    var userData = JSON.parse(sessionStorage.getItem("sessionData"));
+     var userCompany = userData[userData.length - 1].adminCompany;
+     var data={
+       company: userCompany
+     }
+     sessionStorage.clear();
+    sessionStorage.setItem('sessionData',JSON.stringify(data));
     this.router.navigate(['/company']);
   }
 
