@@ -9,6 +9,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class GlobalContactSearchComponent implements OnInit {
 
   @Output() addUser = new EventEmitter<any>();
+  @Output() editUser = new EventEmitter<any>();
   @Output() emitOpenSidebar = new EventEmitter<any>();
   @Output() userFilter: EventEmitter<any> = new EventEmitter();
   searchText: string; 
@@ -21,6 +22,10 @@ export class GlobalContactSearchComponent implements OnInit {
   
   openUserForm(){
     this.addUser.emit(null);
+  }
+
+  openEditForm(){
+    this.editUser.emit(null);
   }
 
   openSidebar(){

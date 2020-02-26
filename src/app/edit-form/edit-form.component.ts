@@ -12,4 +12,14 @@ export class EditFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  editUser(){
+    
+    let newContact: any = {
+      name: (<HTMLInputElement>document.getElementById("inputUsername")).value,
+      mail: (<HTMLInputElement>document.getElementById("inputMail")).value,
+      phone: (<HTMLInputElement>document.getElementById("inputPhone")).value,
+      job: (<HTMLInputElement>document.getElementById("inputJob")).value
+    };
+    alert(JSON.stringify(newContact));
+  }
 }

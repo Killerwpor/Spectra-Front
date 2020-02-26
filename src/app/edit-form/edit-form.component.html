@@ -1,1 +1,87 @@
-<p>edit-form works!</p>
+<div class="row row-user">
+    <div class="col-lg-5 col-profile-picture text-center my-auto">
+      <div class="profile-picture default--cover">
+        <i *ngIf="!imgUploaded" class="fa fa-user i-user" aria-hidden="true"></i>
+        <img *ngIf="imgUploaded" class="image--cover" [src]="imgURL" alt="" />
+        <a class="mc-btn-action">
+          <input
+            #file
+            type="file"
+            accept="image/*"
+            (change)="preview(file.files)"
+          />
+          <i class="fa fa-camera" aria-hidden="true" style="color: white;"></i>
+        </a>
+      </div>
+    </div>
+    <div class="col-lg-5 my-auto col-privileges h-100">
+   
+
+          <div class="col-lg-12 my-auto">
+            <h4 class="tex">Editar usuario</h4>
+          </div>
+      
+     
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+  <div class="row row-data">
+    <div class="col-lg-12 my-auto">
+      <input
+        [(ngModel)]="inputUsername"
+        (change)="updateValues()"
+        id="inputUsername"
+        type="text"
+        class="form-control"
+        placeholder="Nombre y apellido"
+      />
+    </div>
+    <div class="col-lg-12 my-auto">
+      <input
+        [(ngModel)]="inputMail"
+        ng-change="updateValues()"
+        id="inputMail"
+        type="text"
+        class="form-control"
+        placeholder="Correo"
+      />
+    </div>
+    <div class="col-lg-12 my-auto">
+      <input
+        [(ngModel)]="inputPhone"
+        ng-change="updateValues()"
+        id="inputPhone"
+        type="text"
+        class="form-control"
+        placeholder="Celular"
+      />
+    </div> 
+
+    <div class="col-lg-12 my-auto">
+      <input
+        [(ngModel)]="inputJob"
+        ng-change="updateValues()"
+        id="inputJob"
+        type="text"
+        class="form-control"
+        placeholder="Cargo"
+      />
+    </div>
+  </div>
+  <div class="container h-15">
+    <div class="row h-100">
+      <div class="col-lg-8"></div>
+      <div class="col-lg-2 h-100 my-auto text-center">
+        <button (click) = "editUser()" type="button" class="btn btn-skew">
+          <h5>Guardar</h5>
+        </button>
+      </div>
+      <div class="responsive-filler"></div>
+      <div class="col-lg-2 h-100 my-auto text-center">
+        <button type="button" class="btn btn-skew" (click)="returnToDash()">
+          <h5>Cancelar</h5>
+        </button>
+      </div>
+    </div>
+  </div>
+  

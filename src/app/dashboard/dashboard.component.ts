@@ -210,7 +210,7 @@ export class DashboardComponent implements OnInit {
   // Funcion para abrir la forma de agregar usuario y cerrar el dash o vice-versa
   addUser() {
     this.updateData();
-    if (this.toggle == "dash" || this.toggle == "notSelected" || this.toggle == "addCompany") {
+    if (this.toggle == "dash" || this.toggle == "notSelected" || this.toggle == "addCompany" || this.toggle == "edit") {
       this.toggle = "add";
     } else if (this.toggle == "add") {
       if (this.selectedContact) {
@@ -221,6 +221,21 @@ export class DashboardComponent implements OnInit {
     }
     this.closeUserSidebar();
   }
+
+  editUser() {
+    this.updateData();
+    if (this.toggle == "dash" || this.toggle == "notSelected" || this.toggle == "addCompany" || this.toggle == "add" ) {
+      this.toggle = "edit";
+    } else if (this.toggle == "edit") {
+      if (this.selectedContact) {
+        this.toggle = "dash";
+      } else {
+        this.toggle = "notSelected"
+      }
+    }
+    this.closeUserSidebar();
+  }
+
 
   addCompany() {
     //aqui actualizar la lista de simuladores
