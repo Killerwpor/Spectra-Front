@@ -37,7 +37,13 @@ export class LoginComponent implements OnInit {
           console.log("No se pudo entrar a la aplicacion");
         }
         else{
-          sessionStorage.setItem('sessionData',JSON.stringify(this.response));
+          var userCompany = this.response[this.response.length - 1].adminCompany;
+          var data={
+            email: this.data.email,
+            password: this.data.password,
+            company: userCompany
+          }
+          sessionStorage.setItem('sessionData',JSON.stringify(data));
           this.router.navigate(['/company']);
           console.log(this.response);
         }

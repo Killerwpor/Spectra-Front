@@ -134,6 +134,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.userData = JSON.parse(sessionStorage.getItem("sessionData"));
+    console.log("DATOS 2: "+JSON.stringify(this.userData));
     if (this.userData == undefined || this.userData == null) {
       this.router.navigate(["/login"]);
     }
@@ -237,7 +238,8 @@ export class DashboardComponent implements OnInit {
   updateData() {
     var logInfo: UserLoginInfo = {
       email: sessionStorage.getItem("userEmail"),
-      password: sessionStorage.getItem("userPass")
+      password: sessionStorage.getItem("userPass"),
+      companyName: ""
     };
 
     this.logService.postLogin(logInfo).subscribe(result => {
