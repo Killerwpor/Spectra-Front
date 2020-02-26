@@ -42,6 +42,7 @@ import { GlobalContactSearchComponent } from './global-contact-search/global-con
 import { GlobalListContactsComponent } from './global-list-contacts/global-list-contacts.component';
 import { DatePipe } from '@angular/common';
 import { CompanyFormComponent } from './company-form/company-form.component';
+import { EditFormComponent } from './edit-form/edit-form.component';
 
 
 
@@ -74,7 +75,8 @@ import { CompanyFormComponent } from './company-form/company-form.component';
     GlobalContactSearchComponent,
     GlobalListContactsComponent,
     PageCompanyListComponent,
-    CompanyFormComponent
+    CompanyFormComponent,
+    EditFormComponent
   ],
   imports: [
     MainPipe,

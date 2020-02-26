@@ -30,6 +30,7 @@ export class PageCompanyListComponent implements OnInit {
    }
 
   ngOnInit() {
+    
     //NOTE Conseguir cual es la empresa del usuario
     // this.data.name = sessionStorage.getItem()
     var userData = JSON.parse(sessionStorage.getItem("sessionData"));
@@ -61,17 +62,36 @@ export class PageCompanyListComponent implements OnInit {
 
   companySelected(data){
     var userData = JSON.parse(sessionStorage.getItem("sessionData"));
-   
+    if(sessionStorage.getItem("credentials")==null){
+
+    
     var dataAux={
       email: userData.email,
       password: userData.password,
       companyName: data
     }
+  }
+  else{
+    var credentials=JSON.parse(sessionStorage.getItem("credentials"));
+
+    var dataAux={
+      email: credentials.email,
+      password: credentials.password,
+      companyName: data
+    }
+
+  }
+    
+  
+ 
+
+
   
     this.logService.postLogin2(dataAux).subscribe(
       result =>{
        // alert(result);
-      sessionStorage.clear();
+       
+      //sessionStorage.clear();
       sessionStorage.setItem('sessionData',JSON.stringify(result));
       this.router.navigate(['/dash']);
          // console.log(this.response);

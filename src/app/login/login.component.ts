@@ -43,6 +43,13 @@ export class LoginComponent implements OnInit {
             password: this.data.password,
             company: userCompany
           }
+          if(JSON.parse(sessionStorage.getItem("credentials"))==null){
+            var credentials={
+              email: this.data.email,
+              password: this.data.password
+            }
+            sessionStorage.setItem('credentials',JSON.stringify(credentials));
+          }
           sessionStorage.setItem('sessionData',JSON.stringify(data));
           this.router.navigate(['/company']);
           console.log(this.response);

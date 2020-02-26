@@ -32,7 +32,7 @@ export class MenuUserComponent implements OnInit {
      var data={
        company: userCompany
      }
-     sessionStorage.clear();
+     //sessionStorage.clear();
     sessionStorage.setItem('sessionData',JSON.stringify(data));
     this.router.navigate(['/company']);
   }
