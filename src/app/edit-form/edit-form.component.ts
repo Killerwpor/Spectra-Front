@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { EditService } from "./edit-form.service";
 
 @Component({
@@ -16,6 +16,7 @@ export class EditFormComponent implements OnInit {
   myRadio: string = '';
 
   @Input() chosen;
+  @Output() close: EventEmitter<any> = new EventEmitter();
 
   constructor(public editService: EditService) { }
 
@@ -86,8 +87,15 @@ export class EditFormComponent implements OnInit {
     this.editService
     .editUser(newContact)
     .subscribe(result => {
- alert("El usuario "+this.chosen.name+" se ha editado con éxito");
+    alert("El usuario "+this.chosen.name+" se ha editado con éxito");
+    this.returnToDash();
     });
+    
 
+  }
+
+  returnToDash() {
+    this.close.emit(null);
+    
   }
 }

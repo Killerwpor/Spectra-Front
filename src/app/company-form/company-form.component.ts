@@ -41,15 +41,12 @@ clientName: userCompany
     this.formAddService
     .postAddForm(newCompanyData)
     .subscribe(result => {
-     this.display="block";
+    alert("Se ha creado la empresa con éxito");
+      this.returnToDash();
     });   
 
 }
 
-closeModal(){
-  this.display="none";
-
-}
 
 returnToDash() {
   this.close.emit(null);
