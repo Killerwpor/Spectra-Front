@@ -1,6 +1,6 @@
 import { SafeHtml } from './../safehtml.pipe';
 import { contact } from './../contact';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 
 @Component({
@@ -10,11 +10,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ContactPanelComponent implements OnInit {
 
+  @Output() editUser = new EventEmitter<any>();
+
   @Input() chosen;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  openEditForm(){
+    this.editUser.emit(null);
   }
 
 }
