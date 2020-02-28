@@ -26,7 +26,7 @@ export class FormAddComponent implements OnInit {
   addForm: any[] = [];
   response: any;
 
-  constructor(public formAddService: FormAddService) {}
+  constructor(public formAddService: FormAddService, public loginService: LoginService) {}
 
   ngOnInit() {
     this.prepareSimFormInput(this.simulatorList);
@@ -62,15 +62,29 @@ export class FormAddComponent implements OnInit {
       simulators: simFormData
     };
 
-    console.log("newUserData");
-    console.log(newUserData);
-
     this.formAddService
       .postAddForm(newUserPhoto, newUserData)
       .subscribe(result => {
         this.response = result;
         if (this.response != null) {
-          this.returnToDash();
+          
+         var datos= JSON.parse(sessionStorage.getItem("credentials"));
+         var companySelected= JSON.parse(sessionStorage.getItem("companySelected"));
+          var data={
+            email: datos.email,
+            password: datos.password,
+            companyName: companySelected.name
+          }
+          
+          this.loginService
+          .postLogin2(data)
+          .subscribe(result=>{
+            sessionStorage.removeItem("sessionData");
+            sessionStorage.setItem('sessionData',JSON.stringify(result));
+            this.returnToDash();
+          })
+
+         
         } else {
           console.log("la operacion fallo");
           console.log(this.response);

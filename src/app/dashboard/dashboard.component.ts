@@ -134,8 +134,8 @@ export class DashboardComponent implements OnInit {
   constructor(public router: Router, public logService: LoginService) {}
 
   ngOnInit() {
+    //alert()
     this.userData = JSON.parse(sessionStorage.getItem("sessionData"));
-    console.log("DATOS 2: "+JSON.stringify(this.userData));
     if (this.userData == undefined || this.userData == null) {
       this.router.navigate(["/login"]);
     }
@@ -158,9 +158,9 @@ export class DashboardComponent implements OnInit {
   }
 
   collapseNavLink(target) {
-
     switch(target){
       case "simulators": 
+this.ngOnInit();
         $('#collapseSim').collapse('toggle');
       break;
       case "menu":
@@ -349,6 +349,7 @@ export class DashboardComponent implements OnInit {
   //SECTION Preparar Json
   prepareJson(data: any) {
     //Simuladores del usuario
+    this.simulatorList=[];
     for (var _i = 0; _i < data.length - 2; _i++) {
       var sim = data[_i];
       let newSim: simulator = {

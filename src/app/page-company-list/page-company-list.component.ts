@@ -64,7 +64,12 @@ export class PageCompanyListComponent implements OnInit {
     var userData = JSON.parse(sessionStorage.getItem("sessionData"));
     if(sessionStorage.getItem("credentials")==null){
 
-    
+    var companySelected={
+      name: data
+    }
+
+    sessionStorage.setItem("companySelected",JSON.stringify(companySelected));
+
     var dataAux={
       email: userData.email,
       password: userData.password,
@@ -73,6 +78,12 @@ export class PageCompanyListComponent implements OnInit {
   }
   else{
     var credentials=JSON.parse(sessionStorage.getItem("credentials"));
+
+    var companySelected={
+      name: data
+    }
+
+    sessionStorage.setItem("companySelected",JSON.stringify(companySelected));
 
     var dataAux={
       email: credentials.email,

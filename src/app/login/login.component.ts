@@ -46,7 +46,8 @@ export class LoginComponent implements OnInit {
           if(JSON.parse(sessionStorage.getItem("credentials"))==null){
             var credentials={
               email: this.data.email,
-              password: this.data.password
+              password: this.data.password,
+              company: userCompany
             }
             sessionStorage.setItem('credentials',JSON.stringify(credentials));
           }
