@@ -89,6 +89,7 @@ export class DashboardComponent implements OnInit {
   contactsCollapse: boolean = false;
   menuCollapse: boolean = false;
   simCollapse: boolean = false;
+  companySelected: string;
 
   userData: any;
   userId: string;
@@ -136,6 +137,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     //alert()
     this.userData = JSON.parse(sessionStorage.getItem("sessionData"));
+    this.companySelected=JSON.parse(sessionStorage.getItem("companySelected")).name;
     if (this.userData == undefined || this.userData == null) {
       this.router.navigate(["/login"]);
     }

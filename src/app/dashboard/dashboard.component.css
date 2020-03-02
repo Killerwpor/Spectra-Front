@@ -97,6 +97,17 @@
   opacity: 0.3;
 }
 
+
+.companySelectedText {
+  font-size: 2em;
+  font-family: "tex";
+  color: var(--spectra-green);
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-weight: bold;
+}
+
 .h-95 {
   height: 95% !important;
 }
