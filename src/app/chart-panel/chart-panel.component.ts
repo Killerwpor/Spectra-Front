@@ -85,6 +85,7 @@ export class ChartPanelComponent implements OnInit {
   public dateStr: string = "";
 
   @Input() id: string;
+  @Input() chosen: any;
   @Input() simulator: string;
   @Input() company: string;
   @Input() userType: string;
@@ -138,18 +139,15 @@ export class ChartPanelComponent implements OnInit {
     this.refreshCharts();
 
     if (this.metricType == 'byUser') {
-      this.data.email = this.id;
+      this.data.documentType = this.chosen.documentType;
+      this.data.documentNumber=this.chosen.documentNumber;
       this.data.simulator = this.simulator;
 
       //console.log("consulta sobre: " + this.data.email + " " + this.data.simulator);
 
       this.chartService.postChartPanel(this.data, this.metricType).subscribe(result => {
         this.response = result;
-        console.log('Esto es lo que trae');
-        console.log(this.response);
         if (this.response != null) {
-          console.log("esta es la respuesta");
-          console.log(this.response);
           this.prepareCharts(this.response[0].graficos);
         } else {
           console.log("la respuesta es null");
@@ -178,10 +176,10 @@ export class ChartPanelComponent implements OnInit {
     }
 
     if (this.metricType == 'byCompany') {
-
-      this.companyData.company = this.company;
+  
+    var companySelected=JSON.parse(sessionStorage.getItem("companySelected"))
+      this.companyData.company = companySelected.name;
       this.companyData.simulator = this.simulator;
-
       this.chartService.postChartPanel(this.companyData, this.metricType).subscribe(result => {
         this.response = result;
         if (this.response != null) {
@@ -195,17 +193,15 @@ export class ChartPanelComponent implements OnInit {
 
     if (this.metricType == 'byDate') {
       this.dateData.date = this.dateStr;
-      this.dateData.email = this.id;
+      this.dateData.documentType = this.chosen.documentType;
+      this.dateData.documentNumber=this.chosen.documentNumber;
       this.dateData.simulator = this.simulator;
 
       this.chartService.postChartPanel(this.dateData, this.metricType).subscribe(result => {
         this.response = result;
         if (this.response != null) {
-          console.log("esta es la respuesta");
-          console.log(this.response);
           this.prepareCharts(this.response[0].graficos);
         } else {
-          console.log("la respuesta es null");
           this.noCharts();
         }
       });
@@ -263,8 +259,6 @@ export class ChartPanelComponent implements OnInit {
         }
       }
       this.chartsPrepared = true;
-      console.log("Estas son las charts antes de ser enviadas");
-      console.log(this.allCharts);
       this.emitMetrics.emit(this.allCharts);
     }
   }
@@ -388,7 +382,6 @@ export class ChartPanelComponent implements OnInit {
 
   //TODO Crear funcion de crear checkChart
   createCheck(data) {
-    console.log("check chart");
     let values = data.groups;
     let newCheck: CheckChartData = {
       chartName: data.name,

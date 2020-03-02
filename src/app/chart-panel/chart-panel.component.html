@@ -6,10 +6,10 @@
     </div>
 
     <div class="col-lg-6 tex my-auto col-name-simulator">
-      <h5 *ngIf="metricType == 'bySupervisor'">{{ id }}{{ simulator }}</h5>
-      <h5 *ngIf="metricType == 'byUser'">{{ id }}{{ simulator }}</h5>
-      <h5 *ngIf="metricType == 'byCompany'">{{ company }}{{ simulator }}</h5>
-      <h5 *ngIf="metricType == 'byDate'">{{ id }}{{ simulator }}{{ dateStr }}</h5>
+      <h5 *ngIf="metricType == 'bySupervisor'"></h5>
+      <h5 *ngIf="metricType == 'byUser'"></h5>
+      <h5 *ngIf="metricType == 'byCompany'"></h5>
+      <h5 *ngIf="metricType == 'byDate'"></h5>
     </div>
   </div>
 
@@ -59,10 +59,4 @@
     </div>
   </div>
 
-  <!-- <ng-container *ngIf="metricType == 'byDate'">
-    <div class="m-5 d-flex justify-content-center">
-      <ejs-calendar id="calendar" [value]='value' [min]='minDate' [max]='maxDate' (change)="onValueChange($event)">
-      </ejs-calendar>
-    </div>
-  </ng-container> -->
 </div>

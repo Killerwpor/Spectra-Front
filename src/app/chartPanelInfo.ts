@@ -1,6 +1,7 @@
 
 export class ChartPanelInfo{
-    email: string;
+    documentNumber: string;
+    documentType: string;
     simulator: string;
 }
 
@@ -15,7 +16,8 @@ export class ChartPanelBySupervisorInfo{
 }
 
 export class ChartPanelByDateInfo{
-    email: string;
+    documentNumber: string;
+    documentType: string;
     simulator: string;
     date: string;
 }

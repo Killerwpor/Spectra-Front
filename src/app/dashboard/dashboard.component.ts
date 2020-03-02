@@ -341,7 +341,7 @@ this.ngOnInit();
   }
 
   sendDateToCharts(date){
-    console.log(date);
+    //console.log(date);
     
     this.chartPanel.onValueChange(date);
   }
@@ -367,31 +367,20 @@ this.ngOnInit();
 
       //NOTE contacts
       for (let con of sim.usuarios) {
-        console.log(con);
+     //   console.log(con);
         var strPhoto = con.profilePicURL;
 
         let newCon: contact = {
           name: con.name,
+          documentType: con.documentType,
+          documentNumber: con.documentNumber,
           id: con._id,
           mail: con.email,
           photoUrl: strPhoto,
           phone: con.phone,
           company: con.company,
           job: con.job,
-          type: con.type,
-          messages: {
-            messages: "Este usuario no tiene mensajes",
-            observations: "Este usuario no tiene observaciones"
-          },
-          charts: {
-            barCharts: [],
-            doughnutCharts: [],
-            radarCharts: [],
-            pieCharts: [],
-            lineCharts: [],
-            checkCharts: [],
-            summaryCharts: []
-          }
+          type: con.type
         };
         if (con.type == "student") {
           newSim.contacts.push(newCon);

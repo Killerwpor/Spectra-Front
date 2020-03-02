@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
           }
           sessionStorage.setItem('sessionData',JSON.stringify(data));
           this.router.navigate(['/company']);
-          console.log(this.response);
         }
       }, error => this.handleError(error) //Si el servidor no responde, entra por aqui.
     

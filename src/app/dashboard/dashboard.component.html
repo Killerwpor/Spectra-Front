@@ -90,16 +90,14 @@
                 </div>
                 <div class="col-lg-12 p-0 my-auto">
                   <app-message-panel (changeMetric)="changeMetricToggle($event)" (emitMetric)="sendInfoToCharts($event)"
-                    (emitDate)="sendDateToCharts($event)" [userType]="selectedContact.type"
-                    [userMessages]="selectedContact.messages.messages"
-                    [userObservations]="selectedContact.messages.observations">
+                    (emitDate)="sendDateToCharts($event)" [userType]="selectedContact.type">
                   </app-message-panel>
                 </div>
               </div>
             </div>
             <div class="col-lg-7 my-auto">
-              <app-chart-panel (emitMetrics)="asignNewMetricList($event)" [id]="selectedContact.mail"
-                [simulator]="selectedSimulator.name" [company]="userCompany" [userType]="selectedContact.type">
+              <app-chart-panel (emitMetrics)="asignNewMetricList($event)"  [id]="selectedContact.mail"
+                [simulator]="selectedSimulator.name" [chosen]="selectedContact" [company]="userCompany" [userType]="selectedContact.type">
               </app-chart-panel>
             </div>
           </div>

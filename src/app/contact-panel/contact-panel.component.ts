@@ -17,6 +17,7 @@ export class ContactPanelComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.chosen);
   }
 
   openEditForm(){
